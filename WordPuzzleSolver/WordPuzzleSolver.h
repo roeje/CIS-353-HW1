@@ -8,6 +8,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <c++/tuple>
 
 using namespace std;
 
@@ -23,9 +24,8 @@ private:
     vector<vector<char>> the_grid;
     vector<string> the_words;
     /* You may add as many private variables and functions here */
-    tuple<string, string> check_row();
-
-    long check_col();
+    tuple<bool, string, string> check_row(auto row, auto&col, auto& word);
+    tuple<bool, string, string> check_col(auto& row, auto col, auto& word);
 };
 
 

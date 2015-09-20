@@ -9,14 +9,23 @@
 using namespace std;
 
 WordPuzzleSolver::WordPuzzleSolver() {
-
+    for (auto row = the_grid.begin(); row != the_grid.end(); ++row) {
+        for(auto col = row->begin(); col != row->end(); ++col) {
+            for(auto word = the_words.begin(); word != the_words.end(); ++word){
+                if (word->begin() == *col){
+                    check_col(row, col., word);
+                    check_row(row, col, word);
+                }
+            }
+        }
+    }
 }
 
-WordPuzzleSolver::check_col() {
-
+tuple<bool, string, string> WordPuzzleSolver::check_col(auto& row, auto col, auto& word) {
+    for (auto search = col)
 }
 
-tuple<string> WordPuzzleSolver::check_row() {
+tuple<bool, string, string> WordPuzzleSolver::check_row(auto row, auto&col, auto& word) {
 
 }
 
