@@ -10,6 +10,8 @@ using namespace std;
 
 
 WordPuzzleSolver::WordPuzzleSolver() {
+
+}
 //    for (auto row = the_grid.begin(); row != the_grid.end(); ++row) {
 //        for(auto col = row->begin(); col != row->end(); ++col) {
 //            for(auto word = the_words.begin(); word != the_words.end(); ++word){
@@ -20,10 +22,12 @@ WordPuzzleSolver::WordPuzzleSolver() {
 //            }
 //        }
 //    }
+WordPuzzleSolver::quad() {
     for(auto word = the_words.begin(); word != the_words.end(); ++word) {
         for (int i = 0; i < the_grid.size(); i++) {
-            for(int j = 0; j < the_grid[0].size(); j++) {
+            for(int j = 0; j < the_grid[i].size(); j++) {
                 if(word->begin() == the_grid[i][j]) {
+
                     auto col_check = check_col(i, j, word);
                     auto row_check = row_check(i, j, word);
                 }
@@ -32,16 +36,38 @@ WordPuzzleSolver::WordPuzzleSolver() {
     }
 }
 
-tuple<bool, string, string> WordPuzzleSolver::check_col(int &row, int col, auto &word) {
-    for (auto search = col) {
+WordPuzzleSolver::check_col(int &row, int col, auto &word) {
 
+    if(the_grid[row][word.length()] == nullptr)
+        return false;
+    else {
+        for (int offSet = 0; offSet != word.end(); ++offSet) {
+            if(the_grid[row][col + offSet] == word[offSet]) {
+
+            }
+            else {
+                break;
+            }
+//            for (auto cell = the_grid[row][col]; cell != the_grid.end(); ++cell ) {
+        }
+        cout << word <<  to_string(row) << to_string(col) << "ACCROSS";
     }
-
 }
 
-tuple<bool, string, string> WordPuzzleSolver::check_row(int row, int &col, auto &word) {
-    for() {
+WordPuzzleSolver::check_row(int row, int &col, auto &word) {
+    if(the_grid[row][word.length()] == nullptr) {
 
+    }
+    else {
+        for (int offSet = 0; offSet != word.end(); ++offSet) {
+            if(the_grid[row + offSet][col] == word[offSet]) {
+            }
+            else {
+                break;
+            }
+//            for (auto cell = the_grid[row][col]; cell != the_grid.end(); ++cell ) {
+        }
+        cout << word <<  to_string(row) << to_string(col) << "DOWN";
     }
 
 }
@@ -91,11 +117,13 @@ void WordPuzzleSolver::solve(const string& which) {
 
     /* Java string "operator==" will be used here */
     if (which == "triple") {
+
         /* refer to second paragraph of page 2 in textbook */
         // Print your SOLUTION to cout
         cout << "......." << endl;
     }
     else {
+        quad();
         /* refer to third paragraph of page 2 in textbook */
     }
 }
