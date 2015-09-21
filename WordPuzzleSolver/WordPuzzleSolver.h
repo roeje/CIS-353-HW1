@@ -1,14 +1,9 @@
-//
-// Created by Jesse on 9/18/2015.
-//
-
 #ifndef CS263_WORD_PUZZLE_VECTOR_EXERCISE_H
 #define CS263_WORD_PUZZLE_VECTOR_EXERCISE_H
 
 #include <fstream>
 #include <vector>
 #include <string>
-#include <c++/tuple>
 
 using namespace std;
 
@@ -18,17 +13,15 @@ public:
      * otherwise your program will not compile when it is run
      * from my script */
     WordPuzzleSolver();
-    WordPuzzleSolver load (ifstream& __input_file_to_read_from__);
+    void load (ifstream& __input_file_to_read_from__);
     void solve (const string& __algorithm_to_use__);
-    quad();
+    void check_row(int row, int&col, string& word);
+    void check_col(int& row, int col, string& word);
+    void quad();
 private:
     vector<vector<char>> the_grid;
     vector<string> the_words;
     /* You may add as many private variables and functions here */
-
-//    tuple<bool, string, string> check_row(auto row, auto&col, auto& word);
-    check_row(auto row, auto&col, auto& word);
-    check_col(auto& row, auto col, auto& word);
 };
 
 
