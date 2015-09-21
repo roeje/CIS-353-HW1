@@ -8,24 +8,41 @@
 
 using namespace std;
 
+
 WordPuzzleSolver::WordPuzzleSolver() {
-    for (auto row = the_grid.begin(); row != the_grid.end(); ++row) {
-        for(auto col = row->begin(); col != row->end(); ++col) {
-            for(auto word = the_words.begin(); word != the_words.end(); ++word){
-                if (word->begin() == *col){
-                    check_col(row, col., word);
-                    check_row(row, col, word);
+//    for (auto row = the_grid.begin(); row != the_grid.end(); ++row) {
+//        for(auto col = row->begin(); col != row->end(); ++col) {
+//            for(auto word = the_words.begin(); word != the_words.end(); ++word){
+//                if (word->begin() == *col){
+//                    check_col(row, col., word);
+//                    check_row(row, col, word);
+//                }
+//            }
+//        }
+//    }
+    for(auto word = the_words.begin(); word != the_words.end(); ++word) {
+        for (int i = 0; i < the_grid.size(); i++) {
+            for(int j = 0; j < the_grid[0].size(); j++) {
+                if(word->begin() == the_grid[i][j]) {
+                    auto col_check = check_col(i, j, word);
+                    auto row_check = row_check(i, j, word);
                 }
             }
         }
     }
 }
 
-tuple<bool, string, string> WordPuzzleSolver::check_col(auto& row, auto col, auto& word) {
-    for (auto search = col)
+tuple<bool, string, string> WordPuzzleSolver::check_col(int &row, int col, auto &word) {
+    for (auto search = col) {
+
+    }
+
 }
 
-tuple<bool, string, string> WordPuzzleSolver::check_row(auto row, auto&col, auto& word) {
+tuple<bool, string, string> WordPuzzleSolver::check_row(int row, int &col, auto &word) {
+    for() {
+
+    }
 
 }
 
